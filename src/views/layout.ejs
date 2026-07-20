@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= title || 'نظام' %></title>
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.rtl.min.css">
+  <style>body{font-family: Tahoma, Arial, sans-serif; padding:20px; background:#f8fafc}</style>
+</head>
+<body>
+  <div class="container">
+    <header class="mb-3">
+      <h2><a href="/">نظام إدارة مزارع الدواجن</a></h2>
+      <nav>
+        <a href="/clients" class="me-2">العملاء</a>
+        <a href="/reports/age-over-45" class="me-2">تنبيهات 45 يوم</a>
+        <a href="/import">استيراد</a>
+        <a href="/backup">نسخ احتياطي</a>
+      </nav>
+    </header>
+    <main>
+      <%- body %>
+    </main>
+    <footer class="mt-4 text-muted">تم الإنشاء</footer>
+  </div>
+</body>
+</html>

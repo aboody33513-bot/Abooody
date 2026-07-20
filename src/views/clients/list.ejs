@@ -1,0 +1,24 @@
+<%- include('../layout', { title: title }) %>
+<section>
+  <h3>قائمة العملاء</h3>
+  <a href="/clients/new" class="btn btn-primary mb-2">إضافة عميل جديد</a>
+  <table class="table table-bordered">
+    <thead><tr><th>كود</th><th>الاسم</th><th>ملاحظات</th><th>العمليات</th></tr></thead>
+    <tbody>
+      <% clients.forEach(c => { %>
+        <tr>
+          <td><%= c.client_id %></td>
+          <td><%= c.name %></td>
+          <td><%= c.notes %></td>
+          <td>
+            <a href="/clients/<%= c.client_id %>/batches" class="btn btn-sm btn-info">دفعات</a>
+            <a href="/clients/<%= c.client_id %>/edit" class="btn btn-sm btn-warning">تعديل</a>
+            <form action="/clients/<%= c.client_id %>/delete" method="post" style="display:inline">
+              <button class="btn btn-sm btn-danger" type="submit">حذف</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

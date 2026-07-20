@@ -1,0 +1,19 @@
+<%- include('../layout', { title: title }) %>
+<section>
+  <h3><%= title %></h3>
+  <form method="post" action="<%= client && client.client_id ? '/clients/' + client.client_id + '/edit' : '/clients/new' %>">
+    <div class="mb-3">
+      <label class="form-label">كود العميل</label>
+      <input name="client_id" value="<%= client.client_id || '' %>" class="form-control" <%= client.client_id ? 'readonly' : '' %> required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">الاسم</label>
+      <input name="name" value="<%= client.name || '' %>" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">ملاحظات</label>
+      <textarea name="notes" class="form-control"><%= client.notes || '' %></textarea>
+    </div>
+    <button class="btn btn-primary">حفظ</button>
+  </form>
+</section>

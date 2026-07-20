@@ -1,0 +1,20 @@
+<%- include('layout', { title: title }) %>
+<section>
+  <h3>لوحة التحكم</h3>
+  <p>عدد العملاء: <strong><%= totalClients %></strong></p>
+  <p>عدد الدفعات: <strong><%= totalBatches %></strong></p>
+  <h4>التنبيهات (عمر >= <%= process.env.ALERT_AGE_DAYS || 45 %> يوم)</h4>
+  <table class="table table-striped">
+    <thead><tr><th>كود العميل</th><th>اسم</th><th>تاريخ الوصول</th><th>العمر (يوم)</th></tr></thead>
+    <tbody>
+      <% (alerts || []).forEach(r => { %>
+        <tr>
+          <td><%= r.client_id %></td>
+          <td><%= r.name %></td>
+          <td><%= r.arrival_date %></td>
+          <td><%= r.age_days %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
